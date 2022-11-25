@@ -1,6 +1,11 @@
+import time
 import CYK
 
+
 def test(oracion):
+    # start_time = time.time()
+    print("Oracion: " + oracion)
+    print("resultado:")
     w = oracion.split()
     table = CYK.CYK(w)
     if "S" in table[0][len(w)-1]:
@@ -11,9 +16,10 @@ def test(oracion):
 
     tree = CYK.construct_tree(table, w, 0, len(w)-1, "S")
     print(tree)
+    # print("--- %s seconds ---" % (time.time() - start_time))
 
 # Oraciones con resultados correctos
-sentences = ["he cuts the cake with a knife",
+sentences = ["he eats a soup",
             "she drinks the soup with a fork",
             "she eats a cake with a fork",
             "the cat drinks the beer"]
